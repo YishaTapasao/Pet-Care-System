@@ -32,23 +32,24 @@ public class loginForm extends javax.swing.JFrame {
     static String type;
     
     public static boolean loginAcc(String username, String password){
-        dbConnector connector =new dbConnector();
-        try{
-            String query = "SELECT * FROM tbl_user WHERE u_username = '"+username+"' AND u_password = '"+password+"'";
-            ResultSet resultSet = connector.getData(query);
-            if(resultSet.next()){
-               status = resultSet.getString("u_status");
-               type = resultSet.getString("u_type");
+    dbConnector connector =new dbConnector();
+    
+      try{
+      String query = "SELECT * FROM tbl_user WHERE u_username = '"+username+"' AND u_password = '"+password+"'";
+      ResultSet resultSet = connector.getData(query);
+      if(resultSet.next()){
+      status = resultSet.getString("u_status");
+      type = resultSet.getString("u_type");
                 
-              return true;  
-            }else{
-                return false;
-            }
-            
-           
-        }catch (SQLException ex){
-            return false;
-        }
+      return true;  
+      }else{
+      return false;
+      }
+             
+             
+      }catch (SQLException ex){
+       return false;
+      }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,18 +152,12 @@ public class loginForm extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         registrationForm rfn = new registrationForm();
         rfn.setVisible(true);
-        this.dispose();
+        this.dispose(); 
         
     }//GEN-LAST:event_jLabel6MouseClicked
 
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-//    if(loginAcc(uname.getText(), pass.getText())){
-//        JOptionPane.showMessageDialog(null,"login Success!");
-//        adminDashboard ads = new adminDashboard();
-//        ads.setVisible(true);
-//        this.dispose();
 
    if(loginAcc(uname.getText(), pass.getText())){
           if(!status.equals("Active")){

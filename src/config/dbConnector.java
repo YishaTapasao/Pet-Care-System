@@ -29,9 +29,8 @@ public class dbConnector {
             }
         }
     
-         public Connection getConnection() {
-        return connect;
-    }
+
+    
          
          
         //Function to retrieve data
@@ -57,17 +56,5 @@ public class dbConnector {
             return result;
         }
         
-//public boolean insertData(String sql) {
-//    try {
-//        PreparedStatement pst = connect.prepareStatement(sql); // Fixed the syntax error
-//        pst.executeUpdate();
-//        System.out.println("Insert Successfully!");
-//        pst.close();
-//        return true;
-//    } catch (SQLException ex) {
-//        System.out.println("Connection Error: " + ex);
-//        return false;
-//    }
-//}
 
 }

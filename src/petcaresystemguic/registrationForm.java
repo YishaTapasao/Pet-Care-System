@@ -25,40 +25,31 @@ public class registrationForm extends javax.swing.JFrame {
     }
     
     public static String em, usname;
-
-public boolean duplicateCheck() {
+    
+    public boolean duplicateCheck() {
     dbConnector dbc = new dbConnector();
     try {
-        String query = "SELECT * FROM tbl_user WHERE u_username = ? OR u_email = ?";
-        PreparedStatement pstmt = dbc.getConnection().prepareStatement(query);
-        pstmt.setString(1, uname.getText()); // Fixed variable
-        pstmt.setString(2, email.getText()); // Fixed variable
-        
-        ResultSet resultSet = pstmt.executeQuery();
-        
+        String query = "SELECT * FROM tbl_user WHERE u_username = '" + uname.getText() + "' OR u_email = '" + email.getText() + "'";
+        ResultSet resultSet = dbc.getData(query);
         if (resultSet.next()) {
             String existingEmail = resultSet.getString("u_email");
-            if (existingEmail.equals(email.getText())) {
-                JOptionPane.showMessageDialog(null, "Email is Already Used!");
-                email.setText("");
-            }
+        if (existingEmail.equals(email.getText())) {
+            JOptionPane.showMessageDialog(null, "Email is Already Used!");
+            email.setText("");
+        }
 
-            String existingUsername = resultSet.getString("u_username");
-            if (existingUsername.equals(uname.getText())) {
-                JOptionPane.showMessageDialog(null, "Username is Already Used!");
-                uname.setText("");
-            }
+        String existingUsername = resultSet.getString("u_username");
+        if (existingUsername.equals(uname.getText())) {
+            JOptionPane.showMessageDialog(null, "Username is Already Used!");
+            uname.setText("");
+        }
             return true;
-        } else {
-            return false;
         }
     } catch (SQLException ex) {
         System.out.println("Error: " + ex.getMessage());
-        return false;
     }
+    return false;
 }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,7 +193,7 @@ public boolean duplicateCheck() {
          }else {
         dbConnector dbc = new dbConnector();
         if(dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_username, u_email, u_password, u_type, u_status)"
-                + "VALUES('"+fname.getText()+"', '"+lname.getText()+"', '"+uname.getText()+"', '"+email.getText()+"', '"+pass.getText()+"', '"+utype.getSelectedItem()+"', 'Pending')")> 0)
+                + "VALUES('"+fname.getText()+"', '"+lname.getText()+"', '"+uname.getText()+"', '"+email.getText()+"', '"+pass.getText()+"', '"+utype.getSelectedItem()+"', 'Pending')")>0)
         {
           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
           loginForm lfr = new loginForm();
