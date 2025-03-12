@@ -80,6 +80,7 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         utype = new javax.swing.JComboBox<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
         ps = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,6 +175,19 @@ public class registrationForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(utype, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 230, 40));
+
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, 40));
+
+        ps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psActionPerformed(evt);
+            }
+        });
         jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 230, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 450, 520));
@@ -234,6 +248,18 @@ public class registrationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+                if (jCheckBox1.isSelected()) {
+        ps.setEchoChar((char) 0); // Show password
+    } else {
+        ps.setEchoChar('*'); // Hide password
+    }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -274,6 +300,7 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

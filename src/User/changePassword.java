@@ -19,42 +19,41 @@ import petcaresystemguic.loginForm;
  *
  * @author Yisha
  */
-public class accountDetails extends javax.swing.JFrame {
+public class changePassword extends javax.swing.JFrame {
 
     /**
      * Creates new form userDashboard
      */
-    public accountDetails() {
+    public changePassword() {
         initComponents();
     }
-    
+
     Color navcolor = new Color(255,102,102);
     Color hovercolor = new Color(255,153,153);
-
-        public boolean duplicateCheck() {
-    dbConnector dbc = new dbConnector();
-    try {
-        String query = "SELECT * FROM tbl_user WHERE u_username = '" + uname.getText() + "' OR u_email = '" + email.getText() + "'";
-        ResultSet resultSet = dbc.getData(query);
-        if (resultSet.next()) {
-            String existingEmail = resultSet.getString("u_email");
-        if (existingEmail.equals(email.getText())) {
-            JOptionPane.showMessageDialog(null, "Email is Already Used!");
-            email.setText("");
-        }
-
-        String existingUsername = resultSet.getString("u_username");
-        if (existingUsername.equals(uname.getText())) {
-            JOptionPane.showMessageDialog(null, "Username is Already Used!");
-            uname.setText("");
-        }
-            return true;
-        }
-    } catch (SQLException ex) {
-        System.out.println("Error: " + ex.getMessage());
-    }
-    return false;
-}
+//        public boolean duplicateCheck() {
+//    dbConnector dbc = new dbConnector();
+//    try {
+//        String query = "SELECT * FROM tbl_user WHERE u_username = '" + uname.getText() + "' OR u_email = '" + email.getText() + "'";
+//        ResultSet resultSet = dbc.getData(query);
+//        if (resultSet.next()) {
+//            String existingEmail = resultSet.getString("u_email");
+//        if (existingEmail.equals(email.getText())) {
+//            JOptionPane.showMessageDialog(null, "Email is Already Used!");
+//            email.setText("");
+//        }
+//
+//        String existingUsername = resultSet.getString("u_username");
+//        if (existingUsername.equals(uname.getText())) {
+//            JOptionPane.showMessageDialog(null, "Username is Already Used!");
+//            uname.setText("");
+//        }
+//            return true;
+//        }
+//    } catch (SQLException ex) {
+//        System.out.println("Error: " + ex.getMessage());
+//    }
+//    return false;
+//}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,23 +75,20 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        fname = new javax.swing.JTextField();
+        oldpass = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        lname = new javax.swing.JTextField();
+        newpass = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        uname = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        conpass = new javax.swing.JTextField();
         changepass = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        back = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         acc_id = new javax.swing.JLabel();
@@ -111,120 +107,77 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel5.setText("S");
+        jLabel5.setText("D");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, 40));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel6.setText("L");
+        jLabel6.setText("R");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, 40));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel7.setText("I");
+        jLabel7.setText("O");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel8.setText("A");
+        jLabel8.setText("W");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, 40));
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel9.setText("T");
+        jLabel9.setText("S");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, 40));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel10.setText("E");
+        jLabel10.setText("S");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, 40));
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel11.setText("D");
+        jLabel11.setText("A");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 40));
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel12.setText("C");
+        jLabel12.setText("H");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 40));
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel13.setText("C");
+        jLabel13.setText("A");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 40));
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel14.setText("T");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 40));
-
-        jLabel16.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel16.setText("LOGOUT");
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, 40));
+        jLabel14.setText("P");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, 40));
 
         jLabel17.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel17.setText("A");
+        jLabel17.setText("C");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 40));
 
         jLabel18.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel18.setText("U");
+        jLabel18.setText("G");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 40));
 
         jLabel21.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel21.setText("N");
+        jLabel21.setText("E");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 40));
 
         jLabel24.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel24.setText("O");
+        jLabel24.setText("N");
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 40));
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel4.setText("First Name:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, 30));
-
-        fname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 230, 40));
+        oldpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 230, 40));
 
         jLabel19.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel19.setText("Last Name:");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 160, 30));
+        jLabel19.setText("New Password:");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, 30));
 
-        lname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 230, 40));
+        newpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 230, 40));
 
         jLabel20.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel20.setText("User Name:");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 160, 30));
+        jLabel20.setText("Confirm Password:");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 190, 30));
 
-        uname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 230, 40));
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel2.setText("Email:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 160, 30));
-
-        email.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 230, 40));
-
-        jButton2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 120, 30));
-
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jButton1.setText("Register");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 120, 30));
+        conpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 230, 40));
 
         changepass.setBackground(new java.awt.Color(255, 153, 153));
         changepass.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,13 +193,39 @@ public class accountDetails extends javax.swing.JFrame {
         });
         changepass.setLayout(null);
 
-        jLabel26.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Change Password");
-        changepass.add(jLabel26);
-        jLabel26.setBounds(10, 10, 210, 30);
+        jLabel23.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Save");
+        changepass.add(jLabel23);
+        jLabel23.setBounds(10, 10, 160, 30);
 
-        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 230, 50));
+        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 180, 50));
+
+        jLabel15.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel15.setText("Old Password:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 190, 30));
+
+        back.setBackground(new java.awt.Color(255, 153, 153));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backMouseExited(evt);
+            }
+        });
+        back.setLayout(null);
+
+        jLabel25.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Back");
+        back.add(jLabel25);
+        jLabel25.setBounds(10, 10, 160, 30);
+
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 180, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 710, 660));
 
@@ -261,20 +240,20 @@ public class accountDetails extends javax.swing.JFrame {
         acc_id.setForeground(new java.awt.Color(255, 204, 204));
         acc_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_id.setText("ID");
-        jPanel3.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, 30));
+        jPanel3.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 290, 30));
 
         acc_ln.setBackground(new java.awt.Color(255, 204, 204));
         acc_ln.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_ln.setForeground(new java.awt.Color(255, 204, 204));
         acc_ln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 300, 30));
+        jPanel3.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 290, 30));
 
         acc_fn.setBackground(new java.awt.Color(255, 204, 204));
         acc_fn.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_fn.setForeground(new java.awt.Color(255, 204, 204));
         acc_fn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_fn.setText("User");
-        jPanel3.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 300, 30));
+        jPanel3.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 290, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 320, 660));
 
@@ -293,55 +272,45 @@ public class accountDetails extends javax.swing.JFrame {
        acc_id.setText(""+sess.getUid());
        acc_fn.setText(""+sess.getFname());
        acc_ln.setText(""+sess.getLname());
-       fname.setText(""+sess.getFname());
-       lname.setText(""+sess.getLname());
-       email.setText(""+sess.getEmail());       
-       uname.setText(""+sess.getUsername());
-
-       }  
+       }
+       
     }//GEN-LAST:event_formWindowActivated
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        userDashboard lfm = new userDashboard();
-        lfm.setVisible(true);
-        this.dispose();
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                                     
-       if(fname.getText().isEmpty() || lname.getText().isEmpty() || uname.getText().isEmpty()
-           || email.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "All fields are required!");
-       } else if (!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-           JOptionPane.showMessageDialog(null, "Invalid email format!");
-           email.setText("");
-       } else if(duplicateCheck()) {
-           System.out.println("Duplicate Exist");
-       } else {
-           dbConnector dbc = new dbConnector();
-
-       if(dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_username, u_email) "
-            + "VALUES ('" + fname.getText() + "', '" + lname.getText() + "', '" + uname.getText() + "', '" + email.getText() + "')") > 0) {
-            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-            loginForm lfr = new loginForm();
-            lfr.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Connection Error!");
-        }
-    }     
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
     private void changepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseClicked
-       changePassword cp = new changePassword();
-       cp.setVisible(true);
-       this.dispose();
+       try {
+           dbConnector dbc = new dbConnector();
+           Session sess = Session.getInstance();
+ 
+           String query = "SELECT * FROM tbl_user WHERE u_id = '" + sess.getUid() + "'";
+           ResultSet rs = dbc.getData(query);
+           if (rs.next()) {
+               String olddbpass = rs.getString("u_password");
+               String oldhash = passwordHasher.hashPassword(oldpass.getText());
+   
+           if (olddbpass.equals(oldhash)) {
+               String npass = newpass.getText();
+   
+           if (npass.length() < 8) {
+               JOptionPane.showMessageDialog(null, "Password character should be 8 above.");
+               return;
+           } 
+               String hashedNpass = passwordHasher.hashPassword(npass);
+
+           if (olddbpass.equals(hashedNpass)) {
+               JOptionPane.showMessageDialog(null, "New password must be different from the old password.");
+               return;
+           }
+               dbc.updateData("UPDATE tbl_user SET u_password = '" + hashedNpass + "'");            
+               loginForm lg = new loginForm();
+               lg.setVisible(true);
+               this.dispose();
+           } else {
+               JOptionPane.showMessageDialog(null, "Old Password is Incorrect!");
+           }
+           } 
+       } catch (SQLException | NoSuchAlgorithmException ex) {
+       }
+    
     }//GEN-LAST:event_changepassMouseClicked
 
     private void changepassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseEntered
@@ -352,11 +321,19 @@ public class accountDetails extends javax.swing.JFrame {
         changepass.setBackground(hovercolor);
     }//GEN-LAST:event_changepassMouseExited
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-     loginForm lg = new loginForm();
-    lg.setVisible(true);
-    this.dispose();
-    }//GEN-LAST:event_jLabel16MouseClicked
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        accountDetails ad = new accountDetails();
+       ad.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_backMouseClicked
+
+    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
+       back.setBackground(navcolor);
+    }//GEN-LAST:event_backMouseEntered
+
+    private void backMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseExited
+        back.setBackground(hovercolor);
+    }//GEN-LAST:event_backMouseExited
 
     /**
      * @param args the command line arguments
@@ -375,21 +352,23 @@ public class accountDetails extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(accountDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changePassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(accountDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changePassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(accountDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changePassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(accountDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changePassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new accountDetails().setVisible(true);
+                new changePassword().setVisible(true);
             }
         });
     }
@@ -398,27 +377,24 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel acc_fn;
     private javax.swing.JLabel acc_id;
     private javax.swing.JLabel acc_ln;
+    private javax.swing.JPanel back;
     private javax.swing.JPanel changepass;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField conpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -426,7 +402,7 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField lname;
-    private javax.swing.JTextField uname;
+    private javax.swing.JTextField newpass;
+    private javax.swing.JTextField oldpass;
     // End of variables declaration//GEN-END:variables
 }

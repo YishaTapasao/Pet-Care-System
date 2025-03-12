@@ -99,14 +99,15 @@ public class createUserForm extends javax.swing.JFrame {
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         uname = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         email = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
         utype = new javax.swing.JComboBox<>();
         ustatus = new javax.swing.JComboBox<>();
         uid = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        pass = new javax.swing.JPasswordField();
         update = new javax.swing.JButton();
         add = new javax.swing.JButton();
         delete = new javax.swing.JButton();
@@ -162,6 +163,15 @@ public class createUserForm extends javax.swing.JFrame {
         uname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 230, 40));
 
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, 40));
+
         email.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,9 +179,6 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 230, 40));
-
-        pass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel2.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 230, 40));
 
         utype.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         utype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
@@ -207,6 +214,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Cão_samoiedo_bonito_acenando_ícone_dos_desenhos_animados_de_pata___Vetor_Premium-removebg-preview.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 420, 500, 240));
+        jPanel2.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 230, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 460, 630));
 
@@ -343,6 +351,14 @@ public class createUserForm extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_updateActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (jCheckBox1.isSelected()) {
+        pass.setEchoChar((char) 0); 
+    } else {
+        pass.setEchoChar('*'); 
+    }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -386,6 +402,7 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JButton delete;
     public javax.swing.JTextField email;
     public javax.swing.JTextField fname;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -399,7 +416,7 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JTextField lname;
-    public javax.swing.JTextField pass;
+    public javax.swing.JPasswordField pass;
     private javax.swing.JButton refresh;
     public javax.swing.JTextField uid;
     public javax.swing.JTextField uname;
