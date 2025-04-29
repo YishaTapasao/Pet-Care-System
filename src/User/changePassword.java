@@ -65,24 +65,8 @@ public class changePassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         oldpass = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
         newpass = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
         conpass = new javax.swing.JTextField();
         changepass = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -106,80 +90,23 @@ public class changePassword extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel5.setText("D");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, 40));
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel6.setText("R");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, 40));
-
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel7.setText("O");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
-
-        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel8.setText("W");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, 40));
-
-        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel9.setText("S");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, 40));
-
-        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel10.setText("S");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, 40));
-
-        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel11.setText("A");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 40));
-
-        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel12.setText("H");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 40));
-
-        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel13.setText("A");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 40));
-
-        jLabel14.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel14.setText("P");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, 40));
-
-        jLabel17.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel17.setText("C");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 40));
-
-        jLabel18.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel18.setText("G");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 40));
-
-        jLabel21.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel21.setText("E");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 40));
-
-        jLabel24.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel24.setText("N");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 40));
-
+        oldpass.setBackground(new java.awt.Color(255, 204, 204));
         oldpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 230, 40));
+        oldpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Old Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 350, 70));
 
-        jLabel19.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel19.setText("New Password:");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, 30));
-
+        newpass.setBackground(new java.awt.Color(255, 204, 204));
         newpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 230, 40));
+        newpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "New Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 350, 70));
 
-        jLabel20.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel20.setText("Confirm Password:");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 190, 30));
-
+        conpass.setBackground(new java.awt.Color(255, 204, 204));
         conpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 230, 40));
+        conpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Confirm Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        jPanel1.add(conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 350, 70));
 
         changepass.setBackground(new java.awt.Color(255, 153, 153));
+        changepass.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         changepass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changepassMouseClicked(evt);
@@ -193,19 +120,20 @@ public class changePassword extends javax.swing.JFrame {
         });
         changepass.setLayout(null);
 
-        jLabel23.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Save");
         changepass.add(jLabel23);
-        jLabel23.setBounds(10, 10, 160, 30);
+        jLabel23.setBounds(20, 0, 80, 40);
 
-        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 180, 50));
+        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 120, 40));
 
-        jLabel15.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel15.setText("Old Password:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 190, 30));
+        jLabel15.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel15.setText("CHANGE PASSWORD");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 280, 40));
 
         back.setBackground(new java.awt.Color(255, 153, 153));
+        back.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
@@ -219,43 +147,43 @@ public class changePassword extends javax.swing.JFrame {
         });
         back.setLayout(null);
 
-        jLabel25.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Back");
+        jLabel25.setText("Cancel");
         back.add(jLabel25);
-        jLabel25.setBounds(10, 10, 160, 30);
+        jLabel25.setBounds(0, 10, 120, 20);
 
-        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 180, 50));
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 710, 660));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 440, 510));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-05_155149-removebg-preview.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 130, 140));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 130, 140));
 
         acc_id.setBackground(new java.awt.Color(255, 204, 204));
         acc_id.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_id.setForeground(new java.awt.Color(255, 204, 204));
         acc_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_id.setText("ID");
-        jPanel3.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 290, 30));
+        jPanel3.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 250, 30));
 
         acc_ln.setBackground(new java.awt.Color(255, 204, 204));
         acc_ln.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_ln.setForeground(new java.awt.Color(255, 204, 204));
         acc_ln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 290, 30));
+        jPanel3.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 250, 30));
 
         acc_fn.setBackground(new java.awt.Color(255, 204, 204));
         acc_fn.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         acc_fn.setForeground(new java.awt.Color(255, 204, 204));
         acc_fn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_fn.setText("User");
-        jPanel3.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 290, 30));
+        jPanel3.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 250, 30));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 320, 660));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 270, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -381,25 +309,9 @@ public class changePassword extends javax.swing.JFrame {
     private javax.swing.JPanel changepass;
     private javax.swing.JTextField conpass;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField newpass;

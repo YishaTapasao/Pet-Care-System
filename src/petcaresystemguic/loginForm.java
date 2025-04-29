@@ -89,16 +89,15 @@ public class loginForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         uname = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        pass = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         exit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -127,16 +126,10 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        uname.setBackground(new java.awt.Color(255, 204, 204));
         uname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 230, 40));
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setText("Password:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 30));
-
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setText("User Name:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 130, 30));
+        uname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "First Name:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 330, 70));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel5.setText("LOGIN FORM");
@@ -149,15 +142,20 @@ public class loginForm extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 270, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 270, -1));
 
-        pass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 230, 40));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Premium_Vector___Cute_dogs_peeking_cartoon_vector_illustration-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 380, 500, 90));
 
         login.setBackground(new java.awt.Color(255, 153, 153));
+        login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
@@ -177,9 +175,10 @@ public class loginForm extends javax.swing.JFrame {
         login.add(jLabel7);
         jLabel7.setBounds(20, 0, 80, 40);
 
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 120, 40));
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 120, 40));
 
         exit.setBackground(new java.awt.Color(255, 153, 153));
+        exit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exitMouseClicked(evt);
@@ -199,7 +198,17 @@ public class loginForm extends javax.swing.JFrame {
         exit.add(jLabel9);
         jLabel9.setBounds(20, 0, 80, 40);
 
-        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 120, 40));
+        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 120, 40));
+
+        pass.setBackground(new java.awt.Color(255, 204, 204));
+        pass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        pass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 330, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 440, 470));
 
@@ -268,6 +277,18 @@ public class loginForm extends javax.swing.JFrame {
         exit.setBackground(hovercolor);
     }//GEN-LAST:event_exitMouseExited
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (jCheckBox1.isSelected()) {
+            pass.setEchoChar((char) 0); // Show password
+        } else {
+            pass.setEchoChar('*'); // Hide password
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,10 +326,9 @@ public class loginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel exit;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -317,7 +337,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel login;
-    private javax.swing.JTextField pass;
+    private javax.swing.JPasswordField pass;
     private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }

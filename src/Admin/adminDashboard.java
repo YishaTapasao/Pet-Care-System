@@ -6,6 +6,7 @@
 package Admin;
 
 import config.Session;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import petcaresystemguic.loginForm;
 
@@ -23,6 +24,8 @@ public class adminDashboard extends javax.swing.JFrame {
         initComponents();
     }
 
+    Color navcolor = new Color(255,153,153);
+    Color hovercolor = new Color(255,102,102);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +41,8 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_name = new javax.swing.JLabel();
         acc_lname = new javax.swing.JLabel();
         acc_id = new javax.swing.JLabel();
+        logout1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -87,7 +92,30 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_id.setText("ID");
         jPanel2.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 30));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 650));
+        logout1.setBackground(new java.awt.Color(204, 204, 204));
+        logout1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logout1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logout1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logout1MouseExited(evt);
+            }
+        });
+        logout1.setLayout(null);
+
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel21.setText("LOGOUT");
+        logout1.add(jLabel21);
+        jLabel21.setBounds(60, 0, 120, 40);
+
+        jPanel2.add(logout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 230, 40));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 520));
 
         jPanel4.setBackground(new java.awt.Color(255, 204, 204));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,87 +127,87 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-05_155149-removebg-preview.png"))); // NOI18N
         jPanel4.add(jLabel5);
-        jLabel5.setBounds(40, 30, 130, 132);
+        jLabel5.setBounds(20, 20, 130, 132);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Users");
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(0, 170, 210, 22);
+        jLabel3.setBounds(0, 172, 170, 20);
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 210, 210));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 170, 190));
 
-        jLabel14.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 204, 204));
         jLabel14.setText("A");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 30, 20));
 
-        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 204, 204));
         jLabel13.setText("D");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 30, 20));
 
-        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 204, 204));
         jLabel9.setText("M");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 40, 20));
 
-        jLabel17.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 204, 204));
         jLabel17.setText("I");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 20, 20));
 
-        jLabel18.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 204, 204));
         jLabel18.setText("N");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 40, 20));
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 204, 204));
         jLabel8.setText("D");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 30, 20));
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 204, 204));
         jLabel7.setText("A");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 30, 20));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 204, 204));
         jLabel1.setText("S");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 30, 20));
 
-        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 204, 204));
         jLabel10.setText("H");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 40, 20));
 
-        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 204, 204));
         jLabel11.setText("B");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 30, 20));
 
-        jLabel15.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 204, 204));
         jLabel15.setText("O");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 40, 20));
 
-        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 204, 204));
         jLabel12.setText("A");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, -1, -1));
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 30, 20));
 
-        jLabel16.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 204, 204));
         jLabel16.setText("R");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 30, 20));
 
-        jLabel19.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 204, 204));
         jLabel19.setText("D");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 30, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 650));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
 
         pack();
         setLocationRelativeTo(null);
@@ -207,6 +235,20 @@ public class adminDashboard extends javax.swing.JFrame {
        }  
            
     }//GEN-LAST:event_formWindowActivated
+
+    private void logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseClicked
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logout1MouseClicked
+
+    private void logout1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseEntered
+        logout.setBackground(navcolor);
+    }//GEN-LAST:event_logout1MouseEntered
+
+    private void logout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseExited
+        logout.setBackground(hovercolor);
+    }//GEN-LAST:event_logout1MouseExited
 
     /**
      * @param args the command line arguments
@@ -259,6 +301,7 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -267,5 +310,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel logout1;
     // End of variables declaration//GEN-END:variables
 }
