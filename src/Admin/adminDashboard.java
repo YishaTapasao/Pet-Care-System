@@ -6,9 +6,14 @@
 package Admin;
 
 import config.Session;
+import config.dbConnector;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import petcaresystemguic.loginForm;
+import Admin.individualPrinting;
+import owner.ownerDashboard;
 
 
 /**
@@ -24,8 +29,8 @@ public class adminDashboard extends javax.swing.JFrame {
         initComponents();
     }
 
-    Color navcolor = new Color(255,153,153);
-    Color hovercolor = new Color(255,102,102);
+    Color navcolor = new Color(153,153,153);
+    Color hovercolor = new Color (204,204,204);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +46,7 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_name = new javax.swing.JLabel();
         acc_lname = new javax.swing.JLabel();
         acc_id = new javax.swing.JLabel();
-        logout1 = new javax.swing.JPanel();
+        logout = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,6 +65,15 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -92,28 +106,28 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_id.setText("ID");
         jPanel2.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 30));
 
-        logout1.setBackground(new java.awt.Color(204, 204, 204));
-        logout1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+        logout.setBackground(new java.awt.Color(204, 204, 204));
+        logout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logout1MouseClicked(evt);
+                logoutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logout1MouseEntered(evt);
+                logoutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                logout1MouseExited(evt);
+                logoutMouseExited(evt);
             }
         });
-        logout1.setLayout(null);
+        logout.setLayout(null);
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel21.setText("LOGOUT");
-        logout1.add(jLabel21);
+        logout.add(jLabel21);
         jLabel21.setBounds(60, 0, 120, 40);
 
-        jPanel2.add(logout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 230, 40));
+        jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 230, 40));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 520));
 
@@ -135,7 +149,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4.add(jLabel3);
         jLabel3.setBounds(0, 172, 170, 20);
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 170, 190));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 170, 190));
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 204, 204));
@@ -207,6 +221,66 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel19.setText("D");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 30, 20));
 
+        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+        jPanel5.setLayout(null);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__9_-removebg-preview (2).png"))); // NOI18N
+        jPanel5.add(jLabel6);
+        jLabel6.setBounds(-20, 0, 180, 180);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Pet Owner");
+        jPanel5.add(jLabel4);
+        jLabel4.setBounds(0, 172, 170, 20);
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 170, 190));
+
+        jPanel6.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+        jPanel6.setLayout(null);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__8_-removebg-preview (2).png"))); // NOI18N
+        jPanel6.add(jLabel20);
+        jLabel20.setBounds(40, 40, 100, 110);
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Print");
+        jPanel6.add(jLabel22);
+        jLabel22.setBounds(0, 172, 170, 20);
+
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 170, 190));
+
+        jPanel7.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
+        jPanel7.setLayout(null);
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-09_113522-removebg-preview.png"))); // NOI18N
+        jPanel7.add(jLabel23);
+        jLabel23.setBounds(30, 20, 120, 140);
+
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Appointments");
+        jPanel7.add(jLabel24);
+        jLabel24.setBounds(0, 172, 170, 20);
+
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 170, 190));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
 
         pack();
@@ -236,19 +310,37 @@ public class adminDashboard extends javax.swing.JFrame {
            
     }//GEN-LAST:event_formWindowActivated
 
-    private void logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseClicked
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginForm lf = new loginForm();
         lf.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_logout1MouseClicked
+    }//GEN-LAST:event_logoutMouseClicked
 
-    private void logout1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseEntered
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
         logout.setBackground(navcolor);
-    }//GEN-LAST:event_logout1MouseEntered
+    }//GEN-LAST:event_logoutMouseEntered
 
-    private void logout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logout1MouseExited
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         logout.setBackground(hovercolor);
-    }//GEN-LAST:event_logout1MouseExited
+    }//GEN-LAST:event_logoutMouseExited
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        ownerDashboard od = new ownerDashboard();
+        od.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        individualPrinting ip = new individualPrinting();
+        ip.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -301,15 +393,24 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel logout1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel logout;
     // End of variables declaration//GEN-END:variables
 }

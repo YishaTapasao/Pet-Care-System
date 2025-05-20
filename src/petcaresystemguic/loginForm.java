@@ -98,6 +98,7 @@ public class loginForm extends javax.swing.JFrame {
         exit = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         pass = new javax.swing.JPasswordField();
+        forgotpass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -210,6 +211,16 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 330, 70));
 
+        forgotpass.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        forgotpass.setForeground(new java.awt.Color(204, 0, 51));
+        forgotpass.setText("Forgot Password? Click Here.");
+        forgotpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotpassMouseClicked(evt);
+            }
+        });
+        jPanel1.add(forgotpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 440, 470));
 
         pack();
@@ -289,6 +300,12 @@ public class loginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passActionPerformed
 
+    private void forgotpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpassMouseClicked
+        forgotPassword fp = new forgotPassword();
+        fp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_forgotpassMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -326,6 +343,7 @@ public class loginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel exit;
+    private javax.swing.JLabel forgotpass;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
