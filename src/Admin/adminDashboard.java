@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import petcaresystemguic.loginForm;
 import Admin.individualPrinting;
-import owner.ownerDashboard;
+import User.Appointments;
 
 
 /**
@@ -48,9 +48,6 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_id = new javax.swing.JLabel();
         logout = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -65,15 +62,15 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -130,26 +127,6 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 230, 40));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 520));
-
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel4MouseClicked(evt);
-            }
-        });
-        jPanel4.setLayout(null);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-05_155149-removebg-preview.png"))); // NOI18N
-        jPanel4.add(jLabel5);
-        jLabel5.setBounds(20, 20, 130, 132);
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Users");
-        jPanel4.add(jLabel3);
-        jLabel3.setBounds(0, 172, 170, 20);
-
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 170, 190));
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 204, 204));
@@ -221,46 +198,6 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel19.setText("D");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 30, 20));
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel5MouseClicked(evt);
-            }
-        });
-        jPanel5.setLayout(null);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__9_-removebg-preview (2).png"))); // NOI18N
-        jPanel5.add(jLabel6);
-        jLabel6.setBounds(-20, 0, 180, 180);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Pet Owner");
-        jPanel5.add(jLabel4);
-        jLabel4.setBounds(0, 172, 170, 20);
-
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 170, 190));
-
-        jPanel6.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel6MouseClicked(evt);
-            }
-        });
-        jPanel6.setLayout(null);
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__8_-removebg-preview (2).png"))); // NOI18N
-        jPanel6.add(jLabel20);
-        jLabel20.setBounds(40, 40, 100, 110);
-
-        jLabel22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Print");
-        jPanel6.add(jLabel22);
-        jLabel22.setBounds(0, 172, 170, 20);
-
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 170, 190));
-
         jPanel7.setBackground(new java.awt.Color(255, 204, 204));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -275,11 +212,51 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Appointments");
+        jLabel24.setText("Records");
         jPanel7.add(jLabel24);
-        jLabel24.setBounds(0, 172, 170, 20);
+        jLabel24.setBounds(0, 152, 170, 40);
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 170, 190));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 170, 190));
+
+        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+        jPanel5.setLayout(null);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__5_-removebg-preview.png"))); // NOI18N
+        jPanel5.add(jLabel6);
+        jLabel6.setBounds(10, 10, 150, 150);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Logs");
+        jPanel5.add(jLabel4);
+        jLabel4.setBounds(0, 160, 170, 30);
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 170, 190));
+
+        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
+        jPanel4.setLayout(null);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-05_155149-removebg-preview.png"))); // NOI18N
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(20, 20, 130, 132);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Users");
+        jPanel4.add(jLabel3);
+        jLabel3.setBounds(0, 152, 170, 40);
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 170, 190));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 520));
 
@@ -324,23 +301,17 @@ public class adminDashboard extends javax.swing.JFrame {
         logout.setBackground(hovercolor);
     }//GEN-LAST:event_logoutMouseExited
 
-    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-        ownerDashboard od = new ownerDashboard();
-        od.setVisible(true);
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_jPanel5MouseClicked
-
-    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
-        individualPrinting ip = new individualPrinting();
-        ip.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jPanel6MouseClicked
-
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        // TODO add your handling code here:
+        AppointmentsAdmin appAD = new AppointmentsAdmin();
+        appAD.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        logs lg = new logs();
+        lg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -393,9 +364,7 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
@@ -409,7 +378,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel logout;
     // End of variables declaration//GEN-END:variables

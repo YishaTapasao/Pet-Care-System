@@ -5,23 +5,47 @@
  */
 package petcaresystemguic;
 
+import config.Session;
+import config.dbConnector;
+import config.passwordHasher;
 import java.awt.Color;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Yisha
  */
+
+
+
 public class resetPassword extends javax.swing.JFrame {
 
     /**
      * Creates new form resetPassword
      */
-    public resetPassword() {
+//  // Default constructor
+//public resetPassword() {
+//    initComponents();
+//}
+ private String userEmail;
+
+    public resetPassword(String email) {
         initComponents();
+        this.userEmail = email;
+        em.setText(userEmail);  // Set email text field with received email
+        em.setEnabled(false);   // Disable editing email field
     }
-    
+
+
     Color navcolor = new Color(255,102,102);
     Color hovercolor = new Color(255,153,153);
+
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,63 +57,105 @@ public class resetPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        login = new javax.swing.JPanel();
+        rconpass = new javax.swing.JTextField();
+        rpass = new javax.swing.JTextField();
+        resetpass = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        em = new javax.swing.JTextField();
+        resetpass1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Confirm Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        rconpass.setBackground(new java.awt.Color(255, 204, 204));
+        rconpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rconpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Confirm Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        rconpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                rconpassActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 420, 80));
+        jPanel1.add(rconpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 420, 80));
 
-        jTextField2.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        rpass.setBackground(new java.awt.Color(255, 204, 204));
+        rpass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Password:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        rpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                rpassActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 420, 80));
+        jPanel1.add(rpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 420, 80));
+
+        resetpass.setBackground(new java.awt.Color(255, 153, 153));
+        resetpass.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        resetpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetpassMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                resetpassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                resetpassMouseExited(evt);
+            }
+        });
+        resetpass.setLayout(null);
+
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("RESET PASSWORD");
+        resetpass.add(jLabel7);
+        jLabel7.setBounds(10, 0, 210, 40);
+
+        jPanel1.add(resetpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 230, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__6_-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 440, 290));
 
-        login.setBackground(new java.awt.Color(255, 153, 153));
-        login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        login.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginMouseExited(evt);
+        em.setBackground(new java.awt.Color(255, 204, 204));
+        em.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        em.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Email:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        em.setEnabled(false);
+        em.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emActionPerformed(evt);
             }
         });
-        login.setLayout(null);
+        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 420, 80));
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Reset Password");
-        login.add(jLabel7);
-        jLabel7.setBounds(20, 0, 190, 40);
+        resetpass1.setBackground(new java.awt.Color(255, 153, 153));
+        resetpass1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        resetpass1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetpass1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                resetpass1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                resetpass1MouseExited(evt);
+            }
+        });
+        resetpass1.setLayout(null);
 
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 230, 40));
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("CANCEL");
+        resetpass1.add(jLabel8);
+        jLabel8.setBounds(10, 0, 210, 40);
+
+        jPanel1.add(resetpass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 230, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 440));
 
@@ -97,25 +163,124 @@ public class resetPassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void rconpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rconpassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_rconpassActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void rpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_rpassActionPerformed
 
-    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+    private void resetpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpassMouseClicked
+  String newPass = rpass.getText().trim();
+        String confirmPass = rconpass.getText().trim();
 
-    }//GEN-LAST:event_loginMouseClicked
+        if (newPass.isEmpty() || confirmPass.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in both fields.");
+            return;
+        }
 
-    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
-        login.setBackground(navcolor);
-    }//GEN-LAST:event_loginMouseEntered
+        if (!newPass.equals(confirmPass)) {
+            JOptionPane.showMessageDialog(null, "Passwords do not match.");
+            return;
+        }
 
-    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
-        login.setBackground(hovercolor);
-    }//GEN-LAST:event_loginMouseExited
+        try {
+            dbConnector dbc = new dbConnector();
+            String hashedPassword = passwordHasher.hashPassword(newPass);
+            String query = "UPDATE tbl_user SET u_password = '" + hashedPassword + "' WHERE u_email = '" + userEmail + "'";
+            int result = dbc.insertData(query);
+
+            if (result > 0) {
+                JOptionPane.showMessageDialog(null, "Password has been reset successfully.");
+                new loginForm().setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to reset password.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+        }
+//String newPass = rpass.getText().trim();
+//        String confirmPass = rconpass.getText().trim();
+//
+//        // Validation
+//        if (newPass.isEmpty() || confirmPass.isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Password fields cannot be empty!");
+//            return;
+//        }
+//
+//        if (newPass.length() < 8) {
+//            JOptionPane.showMessageDialog(null, "Password must be at least 8 characters!");
+//            return;
+//        }
+//
+//        if (!newPass.equals(confirmPass)) {
+//            JOptionPane.showMessageDialog(null, "Passwords do not match!");
+//            return;
+//        }
+//
+//        // Proceed to update password in database
+//        try {
+//            dbConnector dbc = new dbConnector();
+//            String hashedPassword = passwordHasher.hashPassword(newPass);
+//            String query = "UPDATE tbl_user SET u_password = '" + hashedPassword + "' WHERE u_email = '" + userEmail + "'";
+//            int result = dbc.insertData(query);
+//
+//            if (result > 0) {
+//                JOptionPane.showMessageDialog(null, "Password reset successful!");
+//                new loginForm().setVisible(true);
+//                this.dispose();
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Failed to reset password.");
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+//        }
+//     
+
+    }//GEN-LAST:event_resetpassMouseClicked
+
+    private void resetpassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpassMouseEntered
+        resetpass.setBackground(navcolor);
+    }//GEN-LAST:event_resetpassMouseEntered
+
+    private void resetpassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpassMouseExited
+        resetpass.setBackground(hovercolor);
+    }//GEN-LAST:event_resetpassMouseExited
+
+    private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+  if (em.getText() == null || em.getText().isEmpty()) {
+        Session sess = Session.getInstance();
+        if(sess.getUid()==0){
+            JOptionPane.showMessageDialog(null, "No email!");
+            forgotPassword fp = new forgotPassword();
+            fp.setVisible(true);
+            this.dispose();           
+        }else{
+            em.setText(""+sess.getUid());
+        }
+    }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void resetpass1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpass1MouseClicked
+ 
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_resetpass1MouseClicked
+
+    private void resetpass1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpass1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetpass1MouseEntered
+
+    private void resetpass1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetpass1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetpass1MouseExited
 
     /**
      * @param args the command line arguments
@@ -147,17 +312,19 @@ public class resetPassword extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new resetPassword().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField em;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel login;
+    private javax.swing.JTextField rconpass;
+    private javax.swing.JPanel resetpass;
+    private javax.swing.JPanel resetpass1;
+    private javax.swing.JTextField rpass;
     // End of variables declaration//GEN-END:variables
 }

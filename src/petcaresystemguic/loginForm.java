@@ -172,7 +172,7 @@ public class loginForm extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Login");
+        jLabel7.setText("LOGIN");
         login.add(jLabel7);
         jLabel7.setBounds(20, 0, 80, 40);
 
@@ -195,7 +195,7 @@ public class loginForm extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Exit");
+        jLabel9.setText("EXIT");
         exit.add(jLabel9);
         jLabel9.setBounds(20, 0, 80, 40);
 
@@ -245,6 +245,13 @@ public class loginForm extends javax.swing.JFrame {
            if(!status.equals("Active")){
            JOptionPane.showMessageDialog(null,"Inactive Account, Contact the Admin!"); 
         }else{
+               
+               // Logging part
+            dbConnector dbc = new dbConnector(); // Instantiate dbConnector
+            Session sess = Session.getInstance(); // Get current session
+            dbc.insertLog(sess.getUid(), "Logged in to the system");
+               
+               
         if(type.equals("Admin")){
            JOptionPane.showMessageDialog(null,"Login Successfully!"); 
            adminDashboard ads = new adminDashboard(); 

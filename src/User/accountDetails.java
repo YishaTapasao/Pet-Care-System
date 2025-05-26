@@ -144,9 +144,9 @@ public class accountDetails extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Register");
+        jLabel10.setText("REGISTER");
         exit.add(jLabel10);
-        jLabel10.setBounds(10, 0, 100, 40);
+        jLabel10.setBounds(0, 0, 120, 40);
 
         jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 120, 40));
 
@@ -167,9 +167,9 @@ public class accountDetails extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Cancel");
+        jLabel11.setText("CANCEL");
         cancel.add(jLabel11);
-        jLabel11.setBounds(20, 0, 80, 40);
+        jLabel11.setBounds(10, 0, 100, 40);
 
         jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 120, 40));
 

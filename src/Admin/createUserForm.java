@@ -345,7 +345,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         add.setBackground(new java.awt.Color(255, 153, 153));
         add.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        add.setText("Add");
+        add.setText("ADD");
         add.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -364,7 +364,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         delete.setBackground(new java.awt.Color(255, 153, 153));
         delete.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        delete.setText("Delete");
+        delete.setText("DELETE");
         delete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -374,11 +374,16 @@ public class createUserForm extends javax.swing.JFrame {
                 deleteMouseExited(evt);
             }
         });
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
         jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 170, 40));
 
         clear.setBackground(new java.awt.Color(255, 153, 153));
         clear.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        clear.setText("Clear");
+        clear.setText("CLEAR");
         clear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -388,11 +393,16 @@ public class createUserForm extends javax.swing.JFrame {
                 clearMouseExited(evt);
             }
         });
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
         jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 170, 40));
 
         cancel.setBackground(new java.awt.Color(255, 153, 153));
         cancel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        cancel.setText("Cancel");
+        cancel.setText("CANCEL");
         cancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -411,7 +421,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         refresh.setBackground(new java.awt.Color(255, 153, 153));
         refresh.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        refresh.setText("Refresh");
+        refresh.setText("REFRESH");
         refresh.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         refresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -428,7 +438,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         remove.setBackground(new java.awt.Color(255, 153, 153));
         remove.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        remove.setText("Remove");
+        remove.setText("REMOVE");
         remove.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         remove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -447,9 +457,12 @@ public class createUserForm extends javax.swing.JFrame {
 
         select.setBackground(new java.awt.Color(255, 153, 153));
         select.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        select.setText("Select");
+        select.setText("SELECT");
         select.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         select.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 selectMouseEntered(evt);
             }
@@ -465,13 +478,13 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 720, 170, 40));
 
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panel.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 360));
+        panel.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 360));
 
         jPanel1.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 370, 360));
 
         update.setBackground(new java.awt.Color(255, 153, 153));
         update.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        update.setText("Update");
+        update.setText("UPDATE");
         update.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -735,6 +748,18 @@ if(fname.getText().isEmpty() || lname.getText().isEmpty() || uname.getText().isE
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_updateMouseClicked
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectMouseClicked
     
     /**
      * @param args the command line arguments

@@ -122,7 +122,7 @@ public class changePassword extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Save");
+        jLabel23.setText("SAVE");
         changepass.add(jLabel23);
         jLabel23.setBounds(20, 0, 80, 40);
 
@@ -149,7 +149,7 @@ public class changePassword extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Cancel");
+        jLabel25.setText("CANCEL");
         back.add(jLabel25);
         jLabel25.setBounds(0, 10, 120, 20);
 

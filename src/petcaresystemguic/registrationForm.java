@@ -81,8 +81,10 @@ public class registrationForm extends javax.swing.JFrame {
         ps = new javax.swing.JPasswordField();
         exit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        login = new javax.swing.JPanel();
+        register = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        q1 = new javax.swing.JTextField();
+        q2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,9 +99,9 @@ public class registrationForm extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 60));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Cartoon_dog_cat_vector_image_on_VectorStock-removebg-preview.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 360, 430, 360));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 510, 430, 370));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 640));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 800));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setForeground(new java.awt.Color(51, 153, 255));
@@ -186,36 +188,56 @@ public class registrationForm extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Cancel");
+        jLabel10.setText("CANCEL");
         exit.add(jLabel10);
-        jLabel10.setBounds(20, 0, 80, 40);
+        jLabel10.setBounds(10, 0, 100, 40);
 
-        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, 120, 40));
+        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 740, 120, 40));
 
-        login.setBackground(new java.awt.Color(255, 153, 153));
-        login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        login.addMouseListener(new java.awt.event.MouseAdapter() {
+        register.setBackground(new java.awt.Color(255, 153, 153));
+        register.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        register.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginMouseClicked(evt);
+                registerMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginMouseEntered(evt);
+                registerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginMouseExited(evt);
+                registerMouseExited(evt);
             }
         });
-        login.setLayout(null);
+        register.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Register");
-        login.add(jLabel7);
-        jLabel7.setBounds(10, 0, 100, 40);
+        jLabel7.setText("REGISTER");
+        register.add(jLabel7);
+        jLabel7.setBounds(0, 0, 120, 40);
 
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 120, 40));
+        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 740, 120, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 450, 640));
+        q1.setBackground(new java.awt.Color(255, 204, 204));
+        q1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        q1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What is your favorite food?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        q1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                q1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(q1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 370, 70));
+
+        q2.setBackground(new java.awt.Color(255, 204, 204));
+        q2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        q2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What’s your pet’s name?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        q2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                q2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(q2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 370, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 450, 800));
 
         pack();
         setLocationRelativeTo(null);
@@ -259,49 +281,86 @@ public class registrationForm extends javax.swing.JFrame {
         exit.setBackground(hovercolor);
     }//GEN-LAST:event_exitMouseExited
 
-    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
 
-         if(fname.getText().isEmpty() || lname.getText().isEmpty() || uname.getText().isEmpty()
-              || email.getText().isEmpty() || ps.getText().isEmpty()) {
-          JOptionPane.showMessageDialog(null, "All fields are required!");
-         }else if (!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {  
-            JOptionPane.showMessageDialog(null, "Invalid email format!");  
-            email.setText("");  
-         }else if(ps.getText().length()<8){
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above.");
-            ps.setText("");  
-         }else if(duplicateCheck()){
-             System.out.println("Duplicate Exist");
-             
-         }else {
+
+    if(fname.getText().isEmpty() || lname.getText().isEmpty() || uname.getText().isEmpty()
+        || email.getText().isEmpty() || ps.getText().isEmpty()
+        || q1.getText().isEmpty() || q2.getText().isEmpty()) {
+        
+        JOptionPane.showMessageDialog(null, "All fields including security answers are required!");
+        
+    } else if (!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {  
+        JOptionPane.showMessageDialog(null, "Invalid email format!");  
+        email.setText("");  
+        
+    } else if(ps.getText().length() < 8){
+        JOptionPane.showMessageDialog(null,"Password character should be 8 above.");
+        ps.setText("");  
+        
+    } else if(duplicateCheck()){
+        System.out.println("Duplicate Exist");
+        
+    } else {
         dbConnector dbc = new dbConnector();
         
-        try{
-        String pass = passwordHasher.hashPassword(ps.getText());  
+        try {
+String pass = passwordHasher.hashPassword(ps.getText());  
+String sq1 = passwordHasher.hashPassword(q1.getText().trim());
+String sq2 = passwordHasher.hashPassword(q2.getText().trim());
+
+if(dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_username, u_email, u_password, u_type, u_status, u_image, pets_name, favorite_food) "
+        + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '" + uname.getText() + "', '" + email.getText() + "', '" + pass + "', '" + utype.getSelectedItem() + "', 'Pending','', '" + sq1 + "', '" + sq2 + "')") > 0) {
+    // success message...
+    
+  try {
+                    ResultSet rs = dbc.getData("SELECT u_id FROM tbl_user WHERE u_username = '" + uname.getText() + "'");
+                    if (rs.next()) {
+                        int newUserId = rs.getInt("u_id");
+                        dbc.insertLog(newUserId, "Registered a new account: " + newUserId); // 🔥 Log the registration
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Error fetching user ID for logging: " + e.getMessage());
+                }
+
+
+    
+    
         
-        if(dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_username, u_email, u_password, u_type, u_status)"
-                + "VALUES('"+fname.getText()+"', '"+lname.getText()+"', '"+uname.getText()+"', '"+email.getText()+"', '"+pass+"', '"+utype.getSelectedItem()+"', 'Pending')")>0)
-        {
-          JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-          loginForm lfr = new loginForm();
-          lfr.setVisible(true);
-          this.dispose();
-        }else{
-          JOptionPane.showMessageDialog(null, "Connection Error!");  
-        }           
-        }catch(NoSuchAlgorithmException ex){
-            System.out.println(""+ex);  
+        // I-add ni:
+    JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+    loginForm lf = new loginForm();
+    lf.setVisible(true);
+    this.dispose();
+    
+}
+ else {
+                JOptionPane.showMessageDialog(null, "Connection Error!");  
+            }
+        } catch(NoSuchAlgorithmException ex) {
+            System.out.println("" + ex);  
         }
-         }
-    }//GEN-LAST:event_loginMouseClicked
+    }
+loginForm lf = new loginForm();
 
-    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
-        login.setBackground(navcolor);
-    }//GEN-LAST:event_loginMouseEntered
 
-    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
-        login.setBackground(hovercolor);
-    }//GEN-LAST:event_loginMouseExited
+    }//GEN-LAST:event_registerMouseClicked
+
+    private void registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseEntered
+        register.setBackground(navcolor);
+    }//GEN-LAST:event_registerMouseEntered
+
+    private void registerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseExited
+        register.setBackground(hovercolor);
+    }//GEN-LAST:event_registerMouseExited
+
+    private void q1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_q1ActionPerformed
+
+    private void q2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_q2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,8 +411,10 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lname;
-    private javax.swing.JPanel login;
     private javax.swing.JPasswordField ps;
+    private javax.swing.JTextField q1;
+    private javax.swing.JTextField q2;
+    private javax.swing.JPanel register;
     private javax.swing.JTextField uname;
     private javax.swing.JComboBox<String> utype;
     // End of variables declaration//GEN-END:variables

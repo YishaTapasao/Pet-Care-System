@@ -5,11 +5,16 @@
  */
 package petcaresystemguic;
 
+import config.Session;
+import config.dbConnector;
+import config.passwordHasher;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,9 +30,16 @@ public class forgotPassword extends javax.swing.JFrame {
         initComponents();
     }
     
+    
+    
+    
         
     Color navcolor = new Color(255,102,102);
     Color hovercolor = new Color(255,153,153);
+    
+    
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,68 +51,93 @@ public class forgotPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        email = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        semail = new javax.swing.JPanel();
+        q1 = new javax.swing.JTextField();
+        enter = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        email1 = new javax.swing.JTextField();
+        em = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        q2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        email.setBackground(new java.awt.Color(255, 204, 204));
-        email.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        email.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What’s your favorite food?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
-        email.addActionListener(new java.awt.event.ActionListener() {
+        q1.setBackground(new java.awt.Color(255, 204, 204));
+        q1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        q1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What’s your favorite food?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        q1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                q1ActionPerformed(evt);
             }
         });
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 420, 80));
+        jPanel1.add(q1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 420, 80));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel2.setText("Please enter your Sucirity Questions below.");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
-
-        semail.setBackground(new java.awt.Color(255, 153, 153));
-        semail.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        semail.addMouseListener(new java.awt.event.MouseAdapter() {
+        enter.setBackground(new java.awt.Color(255, 153, 153));
+        enter.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        enter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                semailMouseClicked(evt);
+                enterMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                semailMouseEntered(evt);
+                enterMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                semailMouseExited(evt);
+                enterMouseExited(evt);
             }
         });
-        semail.setLayout(null);
+        enter.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Enter");
-        semail.add(jLabel7);
+        jLabel7.setText("ENTER");
+        enter.add(jLabel7);
         jLabel7.setBounds(10, 0, 170, 40);
 
-        jPanel1.add(semail, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 190, 40));
+        jPanel1.add(enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 190, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__6_-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 500, 290));
 
-        email1.setBackground(new java.awt.Color(255, 204, 204));
-        email1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        email1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What’s your pet’s name?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
-        email1.addActionListener(new java.awt.event.ActionListener() {
+        em.setBackground(new java.awt.Color(255, 204, 204));
+        em.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        em.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Enter your Email:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        em.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email1ActionPerformed(evt);
+                emActionPerformed(evt);
             }
         });
-        jPanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 420, 80));
+        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 420, 80));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Back_Clipart_Vector__Vector_Back_Icon__Back_Icons__Arrow__Back_PNG_Image_For_Free_Download-removebg-preview (1).png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 50, 60));
+
+        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel5.setText("Please answer the questions below.");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        q2.setBackground(new java.awt.Color(255, 204, 204));
+        q2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        q2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "What’s your pet’s name?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        q2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                q2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(q2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 420, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 490));
 
@@ -108,28 +145,83 @@ public class forgotPassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void q1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q1ActionPerformed
 
 
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_q1ActionPerformed
 
-    private void semailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_semailMouseClicked
+    private void enterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMouseClicked
+    String email = em.getText().trim();
+    String pet = q2.getText().trim();
+    String food = q1.getText().trim();
 
-       
+    if (email.isEmpty() || pet.isEmpty() || food.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "All fields are required!");
+        return;
+    }
 
-    }//GEN-LAST:event_semailMouseClicked
+    dbConnector dbc = new dbConnector();
 
-    private void semailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_semailMouseEntered
-        semail.setBackground(navcolor);
-    }//GEN-LAST:event_semailMouseEntered
+    try {
+        // Check if email exists
+        String emailQuery = "SELECT * FROM tbl_user WHERE u_email = '" + email + "'";
+        ResultSet emailRs = dbc.getData(emailQuery);
 
-    private void semailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_semailMouseExited
-        semail.setBackground(hovercolor);
-    }//GEN-LAST:event_semailMouseExited
+        if (!emailRs.next()) {
+            JOptionPane.showMessageDialog(null, "Your email is not registered.");
+            return;
+        } else {
+            // Check if answers match
+            String hashedPet = passwordHasher.hashPassword(pet);
+            String hashedFood = passwordHasher.hashPassword(food);
 
-    private void email1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email1ActionPerformed
+            String secQuery = "SELECT * FROM tbl_user WHERE u_email = '" + email + 
+                              "' AND pets_name = '" + hashedPet + 
+                              "' AND favorite_food = '" + hashedFood + "'";
+
+            ResultSet secRs = dbc.getData(secQuery);
+
+            if (secRs.next()) {
+                JOptionPane.showMessageDialog(null, "Identity confirmed! You may now reset your password.");
+
+                resetPassword rp = new resetPassword(email);  // ✅ Correct constructor call
+                rp.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Security answers do not match!");
+            }
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_enterMouseClicked
+
+    private void enterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMouseEntered
+        enter.setBackground(navcolor);
+    }//GEN-LAST:event_enterMouseEntered
+
+    private void enterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMouseExited
+        enter.setBackground(hovercolor);
+    }//GEN-LAST:event_enterMouseExited
+
+    private void emActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_email1ActionPerformed
+    }//GEN-LAST:event_emActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        loginForm lf = new loginForm();
+        lf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+   
+    }//GEN-LAST:event_formWindowActivated
+
+    private void q2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_q2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_q2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,12 +259,14 @@ public class forgotPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField email1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField em;
+    private javax.swing.JPanel enter;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel semail;
+    private javax.swing.JTextField q1;
+    private javax.swing.JTextField q2;
     // End of variables declaration//GEN-END:variables
 }

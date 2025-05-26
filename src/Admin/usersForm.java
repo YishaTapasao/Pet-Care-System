@@ -33,6 +33,7 @@ public class usersForm extends javax.swing.JFrame {
     Color navcolor = new Color(255,204,204);
     Color hovercolor = new Color(255,153,153);
     
+    
     public void displayData(){
         try{
             dbConnector dbc = new dbConnector();

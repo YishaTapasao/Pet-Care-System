@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,4 +77,46 @@ public class dbConnector {
         
         }
         
+         // New method: Insert log into tbl_logs
+    public int insertLog(int userId, String action) {
+        int result = 0;
+        try {
+            // Prepare current timestamp (optional if your table has default CURRENT_TIMESTAMP)
+            LocalDateTime now = LocalDateTime.now();
+            String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            
+            String sql = "INSERT INTO tbl_logs (u_id, actions, date_time) VALUES (?, ?, ?)";
+            PreparedStatement pst = connect.prepareStatement(sql);
+            pst.setInt(1, userId);
+            pst.setString(2, action);
+            pst.setString(3, timestamp);
+            
+            result = pst.executeUpdate();
+            pst.close();
+            
+            if(result > 0) {
+                System.out.println("Log inserted successfully.");
+            }
+        } catch(SQLException ex) {
+            System.out.println("Error inserting log: " + ex.getMessage());
+        }
+        return result;
+    }
+        
+    public int insertAndGetId(String sql) {
+    int generatedId = -1;
+    try {
+        PreparedStatement pst = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        pst.executeUpdate();
+        ResultSet rs = pst.getGeneratedKeys();
+        if (rs.next()) {
+            generatedId = rs.getInt(1); // mao ni ang new user_id
+        }
+        pst.close();
+    } catch (SQLException ex) {
+        System.out.println("Insert with ID Error: " + ex);
+    }
+    return generatedId;
+}
+    
 }

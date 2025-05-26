@@ -58,7 +58,7 @@ public class SecurityQuestions extends javax.swing.JFrame {
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 490, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__6_-removebg-preview.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 410, 320));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 370, 320));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Security Question incase you forgot your password.");
@@ -81,7 +81,7 @@ public class SecurityQuestions extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Enter");
+        jLabel7.setText("ENTER");
         login.add(jLabel7);
         jLabel7.setBounds(30, 0, 80, 40);
 

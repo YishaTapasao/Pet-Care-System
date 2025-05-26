@@ -53,7 +53,6 @@ public class individualPrinting extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -61,28 +60,22 @@ public class individualPrinting extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        address = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        appHistory = new javax.swing.JTable();
         jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        contact = new javax.swing.JLabel();
-        oid = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
         oname = new javax.swing.JLabel();
         pid = new javax.swing.JLabel();
-        page = new javax.swing.JLabel();
-        pbreed = new javax.swing.JLabel();
-        pcolor = new javax.swing.JLabel();
         pname = new javax.swing.JLabel();
+        oid = new javax.swing.JLabel();
+        uid = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        napp = new javax.swing.JTable();
         print = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,10 +172,6 @@ public class individualPrinting extends javax.swing.JFrame {
         jLabel18.setText("+639123456789");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 140, -1));
 
-        jLabel19.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel19.setText("Address:");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 100, -1));
-
         jLabel20.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel20.setText("User ID:");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 90, -1));
@@ -191,7 +180,7 @@ public class individualPrinting extends javax.swing.JFrame {
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 50, 40));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__7_-removebg-preview.png"))); // NOI18N
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 470, 40));
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 470, 40));
 
         jLabel23.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__7_-removebg-preview.png"))); // NOI18N
@@ -202,49 +191,34 @@ public class individualPrinting extends javax.swing.JFrame {
         jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 60, -1));
 
         jLabel25.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel25.setText("Remarks:");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 720, 240, -1));
+        jLabel25.setText("Next Appointment:");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, 240, -1));
 
         jLabel27.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel27.setText("Name:");
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 70, -1));
-
-        address.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 30));
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 70, -1));
 
         jLabel29.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel29.setText("Owner Information");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, -1));
 
-        jLabel30.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel30.setText("Color:");
-        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 70, -1));
-
         jLabel31.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel31.setText("ID:");
-        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 30, -1));
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 50, 30));
 
         jLabel32.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel32.setText("ID:");
-        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 40, -1));
+        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 50, 30));
 
         jLabel33.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel33.setText("Name:");
-        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 70, -1));
-
-        jLabel34.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel34.setText("Breed:");
-        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 70, -1));
-
-        jLabel35.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel35.setText("Age:");
-        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 50, -1));
+        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 70, -1));
 
         jLabel26.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel26.setText("Pet Information");
         jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 210, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        appHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -252,44 +226,45 @@ public class individualPrinting extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(appHistory);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 580, 120));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 640, 120));
 
         jLabel36.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel36.setText("Appointment History:");
-        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 240, -1));
-        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 750, 470, 40));
+        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 240, -1));
 
-        jLabel38.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel38.setText("Contact:");
-        jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 100, -1));
+        date.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel3.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 220, 30));
 
-        contact.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 100, 30));
+        oname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel3.add(oname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 240, 30));
 
-        oid.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(oid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 220, 30));
+        pid.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel3.add(pid, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 100, 30));
 
-        oname.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(oname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 240, 30));
+        pname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel3.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 130, 30));
 
-        pid.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(pid, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 100, 30));
+        oid.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel3.add(oid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 220, 30));
 
-        page.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(page, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 100, 30));
+        uid.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 220, 30));
 
-        pbreed.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(pbreed, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, 100, 30));
+        napp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        pcolor.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(pcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 100, 30));
+            },
+            new String [] {
 
-        pname.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jPanel3.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 100, 30));
+            }
+        ));
+        jScrollPane3.setViewportView(napp);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 680, 840));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 640, 120));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 680, 840));
 
         print.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         print.setText("PRINT");
@@ -367,8 +342,8 @@ public class individualPrinting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel address;
-    private javax.swing.JLabel contact;
+    private javax.swing.JTable appHistory;
+    public javax.swing.JLabel date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -379,7 +354,6 @@ public class individualPrinting extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -391,15 +365,10 @@ public class individualPrinting extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -410,14 +379,13 @@ public class individualPrinting extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JLabel oid;
-    private javax.swing.JLabel oname;
-    private javax.swing.JLabel page;
-    private javax.swing.JLabel pbreed;
-    private javax.swing.JLabel pcolor;
-    private javax.swing.JLabel pid;
-    private javax.swing.JLabel pname;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable napp;
+    public javax.swing.JLabel oid;
+    public javax.swing.JLabel oname;
+    public javax.swing.JLabel pid;
+    public javax.swing.JLabel pname;
     private javax.swing.JButton print;
+    public javax.swing.JLabel uid;
     // End of variables declaration//GEN-END:variables
 }
