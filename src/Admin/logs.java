@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import petcaresystemguic.loginForm;
-import Admin.individualPrinting;
 import User.Appointments;
 import net.proteanit.sql.DbUtils;
 

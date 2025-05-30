@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2025 at 05:17 PM
+-- Generation Time: May 30, 2025 at 04:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,7 +36,7 @@ CREATE TABLE `tbl_appointment` (
   `appointment_time` time(6) NOT NULL,
   `service_type` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `notes` text NOT NULL,
+  `remarks` text NOT NULL,
   `medications` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -44,11 +44,12 @@ CREATE TABLE `tbl_appointment` (
 -- Dumping data for table `tbl_appointment`
 --
 
-INSERT INTO `tbl_appointment` (`app_id`, `user_id`, `pet_id`, `owner_id`, `appointment_date`, `appointment_time`, `service_type`, `status`, `notes`, `medications`) VALUES
-(1, 2, 1, 1, '2025-05-24', '08:00:00.000000', 'Grooming', 'Approved', 'hehe', 'hehe'),
-(2, 2, 2, 4, '2025-05-23', '20:30:00.000000', 'Grooming', 'Pending', '', ''),
-(3, 2, 3, 3, '2025-05-24', '19:30:00.000000', 'Check up', 'Pending', '', ''),
-(4, 2, 4, 2, '2025-05-24', '10:30:00.000000', 'Check up', 'Pending', '', '');
+INSERT INTO `tbl_appointment` (`app_id`, `user_id`, `pet_id`, `owner_id`, `appointment_date`, `appointment_time`, `service_type`, `status`, `remarks`, `medications`) VALUES
+(1, 2, 1, 1, '2025-05-24', '08:00:00.000000', 'Grooming', 'Completed', 'hehe', 'hehe'),
+(2, 2, 2, 4, '2025-05-23', '20:30:00.000000', 'Grooming', 'Approved', '', ''),
+(3, 2, 3, 3, '2025-05-24', '19:30:00.000000', 'Check up', 'Approved', '', ''),
+(4, 2, 4, 2, '2025-05-24', '10:30:00.000000', 'Check up', 'Pending', '', ''),
+(5, 2, 4, 2, '2025-05-30', '08:00:00.000000', 'Vaccine', 'Completed', '', '');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,44 @@ INSERT INTO `tbl_logs` (`l_id`, `u_id`, `actions`, `date_time`) VALUES
 (31, 1, 'Logged in to the system', '2025-05-23 16:25:56'),
 (32, 2, 'Logged in to the system', '2025-05-23 16:26:21'),
 (33, 1, 'Logged in to the system', '2025-05-23 16:30:46'),
-(34, 2, 'Logged in to the system', '2025-05-23 16:31:03');
+(34, 2, 'Logged in to the system', '2025-05-23 16:31:03'),
+(35, 1, 'Logged in to the system', '2025-05-25 22:43:26'),
+(36, 2, 'Logged in to the system', '2025-05-25 22:44:23'),
+(37, 2, 'Logged in to the system', '2025-05-25 22:53:44'),
+(38, 2, 'Logged in to the system', '2025-05-26 21:34:07'),
+(39, 2, 'Logged in to the system', '2025-05-26 21:37:11'),
+(40, 1, 'Logged in to the system', '2025-05-26 21:41:56'),
+(41, 2, 'Logged in to the system', '2025-05-26 21:43:07'),
+(42, 2, 'Added a pet with pet ID: 5', '2025-05-26 21:53:23'),
+(43, 2, 'Logged in to the system', '2025-05-26 21:56:41'),
+(44, 1, 'Logged in to the system', '2025-05-26 22:02:48'),
+(45, 1, 'Logged in to the system', '2025-05-26 22:05:20'),
+(46, 1, 'Logged in to the system', '2025-05-26 22:17:45'),
+(47, 1, 'Logged in to the system', '2025-05-26 22:21:02'),
+(48, 1, 'Logged in to the system', '2025-05-26 22:25:19'),
+(49, 1, 'Logged in to the system', '2025-05-26 22:28:28'),
+(50, 1, 'Logged in to the system', '2025-05-26 22:41:20'),
+(51, 1, 'Logged in to the system', '2025-05-26 22:46:37'),
+(52, 1, 'Logged in to the system', '2025-05-26 22:52:04'),
+(53, 1, 'Logged in to the system', '2025-05-26 22:56:34'),
+(54, 1, 'Logged in to the system', '2025-05-26 22:58:40'),
+(55, 1, 'Logged in to the system', '2025-05-27 10:49:30'),
+(56, 1, 'Logged in to the system', '2025-05-27 10:53:24'),
+(57, 1, 'Logged in to the system', '2025-05-27 11:00:37'),
+(58, 1, 'Logged in to the system', '2025-05-27 11:02:32'),
+(59, 1, 'Logged in to the system', '2025-05-27 11:13:03'),
+(60, 1, 'Logged in to the system', '2025-05-27 11:17:25'),
+(61, 1, 'Logged in to the system', '2025-05-27 11:20:29'),
+(62, 1, 'Logged in to the system', '2025-05-27 11:22:37'),
+(63, 1, 'Logged in to the system', '2025-05-27 11:24:23'),
+(64, 1, 'Logged in to the system', '2025-05-27 11:27:38'),
+(65, 1, 'Logged in to the system', '2025-05-27 11:33:42'),
+(66, 1, 'Logged in to the system', '2025-05-27 11:35:43'),
+(67, 2, 'Logged in to the system', '2025-05-27 11:35:54'),
+(68, 1, 'Logged in to the system', '2025-05-27 11:36:45'),
+(69, 2, 'Logged in to the system', '2025-05-27 11:48:17'),
+(70, 2, 'Logged in to the system', '2025-05-27 11:49:52'),
+(71, 2, 'Logged in to the system', '2025-05-27 11:55:25');
 
 -- --------------------------------------------------------
 
@@ -125,7 +163,8 @@ INSERT INTO `tbl_owner` (`owner_id`, `owner_fname`, `owner_lname`, `owner_contac
 (1, 'as', 'as', '09253256325', 'as'),
 (2, 'haha', 'haha', '09877685768', 'haha'),
 (3, 'hehe', 'hehe', '09675867485', 'hehe'),
-(4, 'huhu', 'huhu', '09876787586', 'huhu');
+(4, 'huhu', 'huhu', '09876787586', 'huhu'),
+(5, 'yashmil', 'tapasao', '09879876789', 'tuyan, naga city');
 
 -- --------------------------------------------------------
 
@@ -150,7 +189,8 @@ INSERT INTO `tbl_pet` (`pet_id`, `owner_id`, `pet_name`, `pet_breed`, `pet_color
 (1, 1, 'as', 'as', 'as', 'as'),
 (2, 4, 'iro', 'iro', 'black', '1 month'),
 (3, 3, 'dog', 'dog', 'pink', '2 months'),
-(4, 2, 'tukoy', 'tukoy', 'black', '3 motnhs');
+(4, 2, 'tukoy', 'tukoy', 'black', '3 motnhs'),
+(5, 5, 'yunyun', 'pitbull', 'black', '6 months');
 
 -- --------------------------------------------------------
 
@@ -227,25 +267,25 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_appointment`
 --
 ALTER TABLE `tbl_appointment`
-  MODIFY `app_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `app_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `l_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `l_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `tbl_owner`
 --
 ALTER TABLE `tbl_owner`
-  MODIFY `owner_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `owner_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_pet`
 --
 ALTER TABLE `tbl_pet`
-  MODIFY `pet_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pet_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

@@ -5,7 +5,6 @@
  */
 package User;
 
-import Admin.individualPrinting;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
