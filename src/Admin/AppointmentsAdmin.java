@@ -96,7 +96,7 @@ public class AppointmentsAdmin extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("APPOINTMENT");
+        jLabel17.setText("APPOINTMENTS");
         print.add(jLabel17);
         jLabel17.setBounds(40, 10, 180, 30);
 

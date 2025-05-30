@@ -52,13 +52,13 @@ public void displayOwnerPetData() {
     try {
         dbConnector dbc = new dbConnector();
 
-        String query = "SELECT o.owner_id, CONCAT(o.owner_fname, ' ', o.owner_lname) AS owner_name, " +
+        String query = "SELECT a.app_id, " +  // Appointment ID first
+                       "o.owner_id, CONCAT(o.owner_fname, ' ', o.owner_lname) AS owner_name, " +
                        "p.pet_id, p.pet_name, " +
-                       "a.app_id, " +  // Appointment ID added here
                        "a.service_type, a.appointment_date, a.appointment_time, a.status " +
                        "FROM tbl_owner o " +
                        "JOIN tbl_pet p ON o.owner_id = p.owner_id " +
-                       "JOIN tbl_appointment a ON p.pet_id = a.pet_id"; // Changed from LEFT JOIN to INNER JOIN
+                       "JOIN tbl_appointment a ON p.pet_id = a.pet_id";
 
         ResultSet rs = dbc.getData(query);
 
@@ -119,6 +119,8 @@ private void filterTable() {
         u_add = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        print = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
 
@@ -209,6 +211,29 @@ private void filterTable() {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot_2025-03-05_154803-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, -1));
+
+        print.setBackground(new java.awt.Color(0, 0, 0));
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                printMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                printMouseExited(evt);
+            }
+        });
+        print.setLayout(null);
+
+        jLabel18.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("PRINT");
+        print.add(jLabel18);
+        jLabel18.setBounds(20, 10, 140, 30);
+
+        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 180, 50));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 680));
 
@@ -305,6 +330,82 @@ filterTable();
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
+  int rowIndex = appTable.getSelectedRow(); // select from appointment table
+
+    if (rowIndex < 0) {
+        JOptionPane.showMessageDialog(null, "Please select a record to print!");
+        return;
+    }
+
+    try {
+        dbConnector dbc = new dbConnector();
+
+        TableModel tbl = appTable.getModel();
+        String appointmentId = tbl.getValueAt(rowIndex, 0).toString();
+
+        // First check the status of the appointment
+        String statusQuery = "SELECT status FROM tbl_appointment WHERE app_id = '" + appointmentId + "'";
+        ResultSet statusRs = dbc.getData(statusQuery);
+
+        if (statusRs.next()) {
+            String status = statusRs.getString("status");
+            System.out.println("DEBUG: Appointment status='" + status + "'"); // debug print
+
+            if (!status.trim().equalsIgnoreCase("Completed")) {
+                JOptionPane.showMessageDialog(null, "Cannot print receipt because the status is not completed.");
+                return; // Exit the method so no receipt is shown
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Appointment record not found.");
+            return;
+        }
+
+        // If status is completed, proceed with fetching data and showing receipt
+        String query = "SELECT a.appointment_date, a.service_type, a.remarks, a.medications, " +
+                       "CONCAT(o.owner_fname, ' ', o.owner_lname) AS owner_name, p.pet_name " +
+                       "FROM tbl_appointment a " +
+                       "JOIN tbl_owner o ON a.owner_id = o.owner_id " +
+                       "JOIN tbl_pet p ON a.pet_id = p.pet_id " +
+                       "WHERE a.app_id = '" + appointmentId + "'";
+
+        ResultSet rs = dbc.getData(query);
+
+        if (rs.next()) {
+            receipt ipt = new receipt();
+
+            ipt.date.setText(java.time.LocalDate.now().toString()); // shows today's date
+            ipt.oname.setText(rs.getString("owner_name"));
+            ipt.pname.setText(rs.getString("pet_name"));
+            ipt.stype.setText(rs.getString("service_type"));
+            ipt.rm.setText(rs.getString("remarks"));
+            ipt.meds.setText(rs.getString("medications"));
+
+            // Get logged-in vet name (assume session username is saved in `acc_id`)
+            String vetQuery = "SELECT u_fname, u_lname FROM tbl_user WHERE u_username = '" + acc_id + "'";
+            ResultSet vetRs = dbc.getData(vetQuery);
+            if (vetRs.next()) {
+                String fullVetName = vetRs.getString("u_fname") + " " + vetRs.getString("u_lname");
+                ipt.uname.setText(fullVetName);
+            }
+
+            ipt.setVisible(true);
+            this.dispose();
+        }
+
+    } catch (SQLException ex) {
+        System.out.println("Error: " + ex);
+    }
+    }//GEN-LAST:event_printMouseClicked
+
+    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
+        print.setBackground(hovercolor);
+    }//GEN-LAST:event_printMouseEntered
+
+    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
+        print.setBackground(navcolor);
+    }//GEN-LAST:event_printMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +479,7 @@ filterTable();
     private javax.swing.JTable appTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -385,6 +487,7 @@ filterTable();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel print;
     private javax.swing.JPanel u_add;
     // End of variables declaration//GEN-END:variables
 }

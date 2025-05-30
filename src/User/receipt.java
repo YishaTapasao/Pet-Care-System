@@ -7,8 +7,11 @@ package User;
 
 import Admin.*;
 import config.PanelPrinter;
+import config.Session;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import petcaresystemguic.loginForm;
 
 /**
  *
@@ -23,8 +26,8 @@ public class receipt extends javax.swing.JFrame {
         initComponents();
     }
     
-    Color navcolor = new Color(255,102,102);
-    Color hovercolor = new Color(255,153,153);
+    Color navcolor = new Color(51,51,51);
+    Color hovercolor = new Color(102,102,102);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,15 +74,17 @@ public class receipt extends javax.swing.JFrame {
         rm = new javax.swing.JTextField();
         oname = new javax.swing.JTextField();
         meds = new javax.swing.JTextField();
-        date1 = new javax.swing.JLabel();
-        date2 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         pname = new javax.swing.JTextField();
-        print = new javax.swing.JButton();
         print1 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -183,47 +188,47 @@ public class receipt extends javax.swing.JFrame {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/download__7_-removebg-preview.png"))); // NOI18N
         page.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 140, 460, 60));
 
-        jLabel24.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel24.setText("Date:");
-        page.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 60, -1));
+        page.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 80, 30));
 
-        jLabel27.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel27.setText("Medication(s):");
-        page.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 120, -1));
+        page.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 710, 140, -1));
 
-        jLabel32.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel32.setText("Owner Name:");
-        page.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 100, 30));
+        page.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 120, 30));
 
-        jLabel33.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel33.setText("Pet Name:");
-        page.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 100, 30));
+        page.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 120, 30));
 
-        uname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        page.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 220, 30));
+        uname.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        page.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 220, 30));
 
-        jLabel28.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel28.setText("Veterinarian:");
-        page.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, 30));
+        page.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 120, 30));
 
-        jLabel30.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel30.setText("Service Type:");
-        page.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 418, 120, 40));
+        page.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 140, 30));
 
-        jLabel34.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel34.setText("Remarks:");
-        page.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 80, -1));
+        page.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 100, -1));
 
-        stype.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        stype.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         stype.setBorder(null);
         stype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stypeActionPerformed(evt);
             }
         });
-        page.add(stype, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 180, 30));
+        page.add(stype, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 180, 30));
 
-        rm.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        rm.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rm.setText(" ");
         rm.setBorder(null);
         rm.addActionListener(new java.awt.event.ActionListener() {
@@ -231,62 +236,39 @@ public class receipt extends javax.swing.JFrame {
                 rmActionPerformed(evt);
             }
         });
-        page.add(rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 530, 70));
+        page.add(rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 310, 90));
 
-        oname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        oname.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         oname.setBorder(null);
         oname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onameActionPerformed(evt);
             }
         });
-        page.add(oname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 190, 30));
+        page.add(oname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 190, 30));
 
-        meds.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        meds.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         meds.setBorder(null);
         meds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 medsActionPerformed(evt);
             }
         });
-        page.add(meds, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 690, 530, 100));
+        page.add(meds, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 730, 330, 80));
 
-        date1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        page.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 220, 30));
+        date.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        page.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 220, 30));
 
-        date2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        page.add(date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 220, 30));
-
-        date.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        page.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 220, 30));
-
-        pname.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        pname.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         pname.setBorder(null);
         pname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pnameActionPerformed(evt);
             }
         });
-        page.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 180, 30));
+        page.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 180, 30));
 
         jPanel1.add(page, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 680, 840));
-
-        print.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        print.setText("PRINT");
-        print.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                printMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                printMouseExited(evt);
-            }
-        });
-        print.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printActionPerformed(evt);
-            }
-        });
-        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 930, -1, -1));
 
         print1.setBackground(new java.awt.Color(51, 51, 51));
         print1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -317,22 +299,10 @@ public class receipt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        usersForm usrs = new usersForm();
-        usrs.setVisible(true);
+        AppointmentsAdmin appa = new AppointmentsAdmin();
+        appa.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_printActionPerformed
-
-    private void printMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseEntered
-        print.setBackground(navcolor);
-    }//GEN-LAST:event_printMouseEntered
-
-    private void printMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseExited
-        print.setBackground(navcolor);
-    }//GEN-LAST:event_printMouseExited
 
     private void stypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stypeActionPerformed
         // TODO add your handling code here:
@@ -362,12 +332,25 @@ pPrint.printPanel();
     }//GEN-LAST:event_print1MouseClicked
 
     private void print1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_print1MouseEntered
-        print.setBackground(hovercolor);
+        print1.setBackground(hovercolor);
     }//GEN-LAST:event_print1MouseEntered
 
     private void print1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_print1MouseExited
-        print.setBackground(navcolor);
+        print1.setBackground(navcolor);
     }//GEN-LAST:event_print1MouseExited
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+Session sess = Session.getInstance();
+if(sess.getUid() == 0){
+    JOptionPane.showMessageDialog(null, "No account, Login First!");
+    loginForm lf = new loginForm();
+    lf.setVisible(true);
+    this.dispose();           
+} else {
+    uname.setText(sess.getFname() + " " + sess.getLname()); // Combine first and last name
+}
+
+      }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -407,8 +390,6 @@ pPrint.printPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel date;
-    public javax.swing.JLabel date1;
-    public javax.swing.JLabel date2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -444,7 +425,6 @@ pPrint.printPanel();
     public javax.swing.JTextField oname;
     private javax.swing.JPanel page;
     public javax.swing.JTextField pname;
-    private javax.swing.JButton print;
     private javax.swing.JPanel print1;
     public javax.swing.JTextField rm;
     public javax.swing.JTextField stype;

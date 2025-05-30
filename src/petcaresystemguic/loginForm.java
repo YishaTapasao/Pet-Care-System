@@ -129,7 +129,7 @@ public class loginForm extends javax.swing.JFrame {
 
         uname.setBackground(new java.awt.Color(255, 204, 204));
         uname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        uname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "First Name:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
+        uname.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "User Name:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
         jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 330, 70));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N

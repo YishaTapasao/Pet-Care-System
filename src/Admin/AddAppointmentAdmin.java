@@ -453,7 +453,7 @@ refreshForm();
         dbConnector dbc = new dbConnector();
         String query = "UPDATE tbl_appointment SET " +
                        "status = '" + statuses + "', " +
-                       "notes = '" + nts + "', " +
+                       "remarks = '" + nts + "', " +
                        "medications = '" + meds + "' " +
                        "WHERE app_id = '" + appId + "'";
 
@@ -590,18 +590,18 @@ if (rowIndex < 0) {
     }//GEN-LAST:event_dateMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-//       Session sess = Session.getInstance();
-//       if(sess.getUid()==0){
-//           JOptionPane.showMessageDialog(null, "No account, Login First!");
-//           loginForm lf = new loginForm();
-//           lf.setVisible(true);
-//           this.dispose();           
-//       }else{
-//       acc_name.setText(""+sess.getFname());
-//       acc_ln.setText(""+sess.getLname());
-//       acc_id.setText(""+sess.getUid());
-//           
-//       }  
+       Session sess = Session.getInstance();
+       if(sess.getUid()==0){
+           JOptionPane.showMessageDialog(null, "No account, Login First!");
+           loginForm lf = new loginForm();
+           lf.setVisible(true);
+           this.dispose();           
+       }else{
+       acc_name.setText(""+sess.getFname());
+       acc_ln.setText(""+sess.getLname());
+       acc_id.setText(""+sess.getUid());
+           
+       }  
           
              }//GEN-LAST:event_formWindowActivated
 

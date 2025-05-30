@@ -107,9 +107,9 @@ public void refreshForm() {
     status.setSelectedIndex(0);
 
     // Re-enable fields
-    oid.setEnabled(true);
-    pid.setEnabled(true);
-    appid.setEnabled(true);
+    oid.setEnabled(false);
+    pid.setEnabled(false);
+    appid.setEnabled(false);
 }
     
 
@@ -450,7 +450,7 @@ public void refreshForm() {
 
     try {
         dbConnector dbc = new dbConnector();
-       String query = "INSERT INTO tbl_appointment (pet_id, owner_id, user_id, appointment_date, appointment_time, service_type, status, notes, medications) " +
+       String query = "INSERT INTO tbl_appointment (pet_id, owner_id, user_id, appointment_date, appointment_time, service_type, status, remarks, medications) " +
                "VALUES ('" + petId + "', '" + ownerId + "', '" + userId + "', '" + formattedDate + "', '" + formattedTime + "', '" + service + "', '" + statuses + "', '', '')";
 int result = dbc.insertData(query);
 
@@ -493,6 +493,7 @@ int result = dbc.insertData(query);
 
         
         refreshForm();
+        
 
     }//GEN-LAST:event_refreshMouseClicked
 
